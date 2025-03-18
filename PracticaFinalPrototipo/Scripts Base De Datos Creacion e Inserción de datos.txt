@@ -1,0 +1,126 @@
+CREACION DE TABLAS
+
+
+
+CREATE TABLE [dbo].[usuario] (
+    [dni]       NCHAR (40) NOT NULL,
+    [nombre]    NCHAR (40) NOT NULL,
+    [apellido1] NCHAR (40) NOT NULL,
+    [apellido2] NCHAR (40) NOT NULL,
+    [rol]       NCHAR (40) NOT NULL,
+    [correo]    NCHAR (40) NOT NULL,
+    [contra]    NCHAR (40) NOT NULL,
+    CONSTRAINT [PK_usuarios] PRIMARY KEY CLUSTERED ([dni] ASC)
+);
+
+
+
+
+CREATE TABLE [dbo].[son] (
+    [id]       INT NOT NULL,
+    [idCompra] INT NOT NULL,
+    [cantidad] INT NOT NULL,
+    PRIMARY KEY CLUSTERED ([idCompra] ASC, [id] ASC)
+);
+
+
+
+
+CREATE TABLE [dbo].[realizan] (
+    [idCompra] INT NOT NULL,
+    [dni]      INT NOT NULL,
+    PRIMARY KEY CLUSTERED ([dni] ASC, [idCompra] ASC)
+);
+
+
+
+
+
+CREATE TABLE [dbo].[productos] (
+    [id]     INT        NOT NULL,
+    [nombre] NCHAR (30) NOT NULL,
+    [Stock]  INT        NOT NULL,
+    [Precio] FLOAT (53) NOT NULL,
+    [tipo]   NCHAR (30) NOT NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC)
+);
+
+
+
+
+CREATE TABLE [dbo].[Pfinal] (
+    [IdPfinal] INT        NOT NULL,
+    [id]       NCHAR (10) NOT NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC, [IdPfinal] ASC)
+);
+
+
+
+
+
+CREATE TABLE [dbo].[compras] (
+    [IdCompra]    INT        NOT NULL,
+    [FechaCompra] NCHAR (50) NOT NULL,
+    [usuario]     NCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdCompra] ASC)
+);
+
+
+
+
+
+
+CREACION DE DATOS BASE
+
+INSERT INTO [dbo].[compras] ([IdCompra], [FechaCompra], [usuario]) VALUES (1, N'base                                              ', N'base                   base                       ')
+INSERT INTO [dbo].[compras] ([IdCompra], [FechaCompra], [usuario]) VALUES (2, N'19/05/2022                                        ', N'Carlos                                            ')
+INSERT INTO [dbo].[compras] ([IdCompra], [FechaCompra], [usuario]) VALUES (3, N'19/05/2022                                        ', N'Carlos                                            ')
+INSERT INTO [dbo].[compras] ([IdCompra], [FechaCompra], [usuario]) VALUES (4, N'19/05/2022                                        ', N'Carlos                                            ')
+
+
+
+INSERT INTO [dbo].[Pfinal] ([IdPfinal], [id]) VALUES (20, N'11        ')
+INSERT INTO [dbo].[Pfinal] ([IdPfinal], [id]) VALUES (21, N'11        ')
+INSERT INTO [dbo].[Pfinal] ([IdPfinal], [id]) VALUES (20, N'13        ')
+INSERT INTO [dbo].[Pfinal] ([IdPfinal], [id]) VALUES (20, N'16        ')
+INSERT INTO [dbo].[Pfinal] ([IdPfinal], [id]) VALUES (21, N'17        ')
+INSERT INTO [dbo].[Pfinal] ([IdPfinal], [id]) VALUES (20, N'18        ')
+INSERT INTO [dbo].[Pfinal] ([IdPfinal], [id]) VALUES (21, N'18        ')
+INSERT INTO [dbo].[Pfinal] ([IdPfinal], [id]) VALUES (21, N'19        ')
+
+
+
+INSERT INTO [dbo].[usuario] ([dni], [nombre], [apellido1], [apellido2], [rol], [correo], [contra]) VALUES (N'59823134M                               ', N'Carlos                                  ', N'Garcia                                  ', N'Lorente                                 ', N'Administrador                           ', N'carlosgl02@gmail.com                    ', N'patata1234                              ')
+
+
+INSERT INTO [dbo].[son] ([id], [idCompra], [cantidad]) VALUES (1, 1, 1)
+INSERT INTO [dbo].[son] ([id], [idCompra], [cantidad]) VALUES (20, 2, 1)
+INSERT INTO [dbo].[son] ([id], [idCompra], [cantidad]) VALUES (21, 3, 1)
+INSERT INTO [dbo].[son] ([id], [idCompra], [cantidad]) VALUES (5, 4, 2)
+
+
+
+INSERT INTO [dbo].[productos] ([id], [nombre], [Stock], [Precio], [tipo]) VALUES (1, N'Tarta mousse                  ', 3, 22, N'Final                         ')
+INSERT INTO [dbo].[productos] ([id], [nombre], [Stock], [Precio], [tipo]) VALUES (2, N'Tarta tres leches             ', 2, 20, N'Final                         ')
+INSERT INTO [dbo].[productos] ([id], [nombre], [Stock], [Precio], [tipo]) VALUES (3, N'Tarta de manzana              ', 1, 14, N'Final                         ')
+INSERT INTO [dbo].[productos] ([id], [nombre], [Stock], [Precio], [tipo]) VALUES (4, N'Cheesecake de fresa           ', 3, 18, N'Final                         ')
+INSERT INTO [dbo].[productos] ([id], [nombre], [Stock], [Precio], [tipo]) VALUES (5, N'Tarta de limón                ', 3, 13, N'Final                         ')
+INSERT INTO [dbo].[productos] ([id], [nombre], [Stock], [Precio], [tipo]) VALUES (6, N'Brownie                       ', 8, 5, N'Final                         ')
+INSERT INTO [dbo].[productos] ([id], [nombre], [Stock], [Precio], [tipo]) VALUES (7, N'Alfajor                       ', 12, 3, N'Final                         ')
+INSERT INTO [dbo].[productos] ([id], [nombre], [Stock], [Precio], [tipo]) VALUES (8, N'Bizcocho de plátano           ', 4, 11, N'Final                         ')
+INSERT INTO [dbo].[productos] ([id], [nombre], [Stock], [Precio], [tipo]) VALUES (9, N'Tarta de zanahoria            ', 4, 14, N'Final                         ')
+INSERT INTO [dbo].[productos] ([id], [nombre], [Stock], [Precio], [tipo]) VALUES (10, N'Bizcocho marmoleado           ', 5, 10, N'Final                         ')
+INSERT INTO [dbo].[productos] ([id], [nombre], [Stock], [Precio], [tipo]) VALUES (11, N'Harina de avena               ', 16, 5, N'Ingrediente                   ')
+INSERT INTO [dbo].[productos] ([id], [nombre], [Stock], [Precio], [tipo]) VALUES (12, N'New York Cheesecake           ', 1, 18, N'Final                         ')
+INSERT INTO [dbo].[productos] ([id], [nombre], [Stock], [Precio], [tipo]) VALUES (13, N'Leche de vaca                 ', 20, 2, N'Ingrediente                   ')
+INSERT INTO [dbo].[productos] ([id], [nombre], [Stock], [Precio], [tipo]) VALUES (14, N'Azúcar morena                 ', 17, 1, N'Ingrediente                   ')
+INSERT INTO [dbo].[productos] ([id], [nombre], [Stock], [Precio], [tipo]) VALUES (15, N'Vainilla                      ', 3, 2, N'Ingrediente                   ')
+INSERT INTO [dbo].[productos] ([id], [nombre], [Stock], [Precio], [tipo]) VALUES (16, N'Chocolate Negro               ', 12, 3.3, N'Ingrediente                   ')
+INSERT INTO [dbo].[productos] ([id], [nombre], [Stock], [Precio], [tipo]) VALUES (17, N'Happy Hippo                   ', 21, 2, N'Ingrediente                   ')
+INSERT INTO [dbo].[productos] ([id], [nombre], [Stock], [Precio], [tipo]) VALUES (18, N'M&M                           ', 34, 1.2, N'Ingrediente                   ')
+INSERT INTO [dbo].[productos] ([id], [nombre], [Stock], [Precio], [tipo]) VALUES (19, N'KitKat                        ', 211, 1.8, N'Ingrediente                   ')
+INSERT INTO [dbo].[productos] ([id], [nombre], [Stock], [Precio], [tipo]) VALUES (20, N'Tarta M&M                     ', 0, 115, N'Compuesto                     ')
+INSERT INTO [dbo].[productos] ([id], [nombre], [Stock], [Precio], [tipo]) VALUES (21, N'ComboTarta                    ', 0, 10, N'Compuesto                     ')
+
+
+
